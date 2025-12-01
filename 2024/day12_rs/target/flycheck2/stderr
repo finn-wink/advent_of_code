@@ -1,0 +1,11 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   0.013659083s  INFO prepare_target{force=false package_id=day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs) target="day12_rs"}: cargo::core::compiler::fingerprint: fingerprint dirty for day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs)/Check { test: false }/TargetInner { name: "day12_rs", doc: true, ..: with_path("/Users/winke/Documents/Programming/advent_for_code/day12_rs/src/main.rs", Edition2021) }
+   0.013681541s  INFO prepare_target{force=false package_id=day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs) target="day12_rs"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.013925041s  INFO prepare_target{force=false package_id=day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs) target="day12_rs"}: cargo::core::compiler::fingerprint: fingerprint dirty for day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs)/Check { test: true }/TargetInner { name: "day12_rs", doc: true, ..: with_path("/Users/winke/Documents/Programming/advent_for_code/day12_rs/src/main.rs", Edition2021) }
+   0.013930791s  INFO prepare_target{force=false package_id=day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs) target="day12_rs"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+    Checking day12_rs v0.1.0 (/Users/winke/Documents/Programming/advent_for_code/day12_rs)
+error: could not compile `day12_rs` (bin "day12_rs") due to 1 previous error; 7 warnings emitted
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `day12_rs` (bin "day12_rs" test) due to 1 previous error; 7 warnings emitted
