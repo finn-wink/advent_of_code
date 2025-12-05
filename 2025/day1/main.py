@@ -23,16 +23,16 @@ for line in f:
         if new_num < 0:
             zeroes += 1
 
-    if new_num != 100:
+    if new_num == 0:
+        zeroes += 1
+
+    if abs(new_num) >= 100:
         zeroes += math.floor(abs(new_num / 100))
 
     new_num = new_num % 100
 
     curr_num = new_num
     print(new_num)
-
-    if new_num == 0:
-        zeroes += 1
 
     print(zeroes)
 

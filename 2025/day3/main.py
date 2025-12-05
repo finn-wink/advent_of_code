@@ -42,7 +42,43 @@ def solve_part1():
     print(joltage)
 
 def solve_part2():
-    return
+    
+    f = open('input.txt', 'r')
+
+    joltage = 0
+    indx_range = [11,10,9,8,7,6,5,4,3,2,1,0]
+    highest_joltage = []
+
+    for line in f:
+        c_list = []
+
+        for c in line:
+            if c == "\n":
+                continue
+            c_list.append(int(c))
+        
+        highest_j = []
+
+        for i in indx_range:
+            highest = c_list[i]
+            highest_ind = i
+            curr_indx = i+1
+
+            while curr_indx+1 < len(c_list):
+                if c_list[curr_indx+1] > highest:
+                    highest = c_list[curr_indx+1]
+                    highest_ind = curr_indx+1
+                curr_indx+=1
+            highest_j.append(highest)
+            c_list.pop(highest_ind)
+        
+        highest_joltage.append(highest_j)
+    
+    print(highest_joltage)
+        
+    # Select the first 12 as the "highest numbers"
+    # Search from the 12th if the next is higher, if so, take it
+    # if not look at the next one
 
 if __name__ == '__main__':
-    solve_part1()
+    solve_part2()

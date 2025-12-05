@@ -1,3 +1,4 @@
+import numpy as np
 
 def solve_part1():
 
@@ -30,13 +31,17 @@ def solve_part1():
 
     print(total_invalid)
 
+def window_checker(string, window):
+    return
+
 def solve_part2():
 
     f = open('input.txt', 'r')
 
     from_l = []
     to_l = []
-    total_invalid = 0
+    total_invalid = []
+    count_invalid = 0
 
     for line in f:
         str_splt = line.split(",")
@@ -52,26 +57,59 @@ def solve_part2():
         end = to_l[i]
 
         for r in range(start, end+1):
+            if r < 11:
+                continue
             r_str = str(r)
-            max_char = len(r_str) // 2 
-
-            # Create combination to check
-            # If less than 1 skip
-            if len(r_str) == 1:
-                continue 
+            chars = list(r_str)
             
-            # Iterate through the window size
-            for w in range(1,max_char):
-                matching = r_str[0:w]
+            # 1 we will always check
+            to_check = chars[0]
+            matches = 0
 
-                print("Matching " + matching)
+            for i, c in enumerate(chars):
+                if i != 0:
+                    if c == to_check:
+                        matches += 1
             
-                # Iterate over the string to see if it's a match, if not, move on
-                for letter in r_str[1:]:
-                    if matching == letter:
-                        total_invalid += 1
-                        print("Matched!")
-                        print(matching + letter)
+            if matches == len(r_str)-1:
+                count_invalid += 1
+                total_invalid.append(r)
+
+            # If bigger than 3
+            if len(r_str) > 3:
+                
+                window_size = 2
+                # iterate through the window sizes
+                while True:
+                    # Only check the lengths that work
+                    if len(r_str) % window_size == 0:
+                        window = chars[0:window_size]
+                        matches2 = 0
+                        
+                        # iterate through leftover windows
+                        for ii in range(1, int(len(r_str)/window_size)):
+                            ind1 = ii*window_size
+                            ind2 = ind1+window_size
+                            w_to_check = chars[ind1:ind2]
+                            
+                            if window != w_to_check:
+                                break
+
+                            matches2+=1
+
+                            if matches2 == int(len(r_str)/window_size)-1:
+                                count_invalid+=1
+                                total_invalid.append(r)
+
+                    if len(r_str) / window_size <= 2:
+                        break
+                    else:
+                        window_size+=1
+
+    total_invalid_l = list(set(total_invalid))
+    print(total_invalid_l)
+    final_result = sum(total_invalid_l)
+    print(final_result)
 
 
 if __name__ == '__main__':
